@@ -225,8 +225,8 @@ schedule: KarrasScheduleParams = get_template_schedule(
 steps, sigma_max, sigma_min, rho = schedule.steps, schedule.sigma_max, schedule.sigma_min, schedule.rho
 sigmas: Tensor = get_sigmas_karras(
   n=steps,
-  sigma_max=sigma_max,
-  sigma_min=sigma_min,
+  sigma_max=sigma_max.item(),
+  sigma_min=sigma_min.item(),
   rho=rho,
   device=device,
 ).to(sampling_dtype)
